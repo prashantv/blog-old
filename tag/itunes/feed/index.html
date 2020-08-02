@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>itunes &#8211; My Tech Spot</title>
+	<atom:link href="https://blog-old.prashantv.com/tag/itunes/feed/" rel="self" type="application/rss+xml" />
+	<link>https://blog-old.prashantv.com/</link>
+	<description>Just another WordPress site</description>
+	<lastBuildDate>Sat, 27 Nov 2010 13:26:50 +0000</lastBuildDate>
+	<language>en-AU</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.4.2</generator>
+	<item>
+		<title>iTunes to foobar2000</title>
+		<link>https://blog-old.prashantv.com/2010/11/itunes-to-foobar2000/</link>
+					<comments>https://blog-old.prashantv.com/2010/11/itunes-to-foobar2000/#comments</comments>
+		
+		<dc:creator><![CDATA[prashant]]></dc:creator>
+		<pubDate>Sat, 27 Nov 2010 13:26:50 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[export]]></category>
+		<category><![CDATA[foobar2000]]></category>
+		<category><![CDATA[foobar2k]]></category>
+		<category><![CDATA[import]]></category>
+		<category><![CDATA[itunes]]></category>
+		<category><![CDATA[playcounts]]></category>
+		<category><![CDATA[ratings]]></category>
+		<guid isPermaLink="false">http://blog-old.prashantv.com/?p=53</guid>
+
+					<description><![CDATA[I got sick of iTunes, and decided to move to foobar2000. The biggest things that annoyed me about iTunes: Speed, or lack of. It is the slowest responding application I use, and I really dislike it No support for global media keys, and the plugin I used to use stopped working too.. No Milkdrop support &#8230; <a href="https://blog-old.prashantv.com/2010/11/itunes-to-foobar2000/" class="more-link">Continue reading<span class="screen-reader-text"> "iTunes to foobar2000"</span></a>]]></description>
+										<content:encoded><![CDATA[<p>I got sick of iTunes, and decided to move to foobar2000. The biggest things that annoyed me about iTunes:</p>
+<ul>
+<li>Speed, or lack of. It is the slowest responding application I use, and I really dislike it</li>
+<li>No support for global media keys, and the plugin I used to use stopped working too..</li>
+<li>No <a href="http://www.google.com.au/images?q=milkdrop&#038;um=1&#038;ie=UTF-8&#038;source=og&#038;sa=N&#038;hl=en&#038;tab=wi&#038;biw=1436&#038;bih=784">Milkdrop</a> support (on Windows, Mac users get projectM at least)</li>
+<li>Sound check sucks. I got sick of some songs getting way too loud for no reason, because the sound check thought the song was too quiet</li>
+</ul>
+<p>The list could go on and on.. but I&#8217;ll focus on the migration itself.</p>
+<p>First, I installed <a href="http://www.foobar2000.org/">foobar2000</a> from the website, no issues. Configured a few options to my liking, got it to use my music folder.</p>
+<p>My main step was ReplayGain, so I ran it and let it go for 2 hours. Unlike iTunes however, even when something is being processed, foobar2000 still lets me use the main interface which was great. Unfortunately I couldn&#8217;t try components, as they need a restart, so that had to wait till later.</p>
+<p>Once all my tracks had their ReplayGain data, I decided to import my play counts, ratings, and other similar data from iTunes. This is where I hit a roadblock. I found a couple of posts that seemed to look OK, but didn&#8217;t really work our for me. So I decided to come up with a way and document it.</p>
+<hr />
+<p>Note: you need foobar2000, iTunes and the play counts and mass tagger components.</p>
+<p>1. Make sure all the files in foobar2000 are also in iTunes, and export a <strong>m3u</strong> playlist from foobar2000. This playlist is used to generate the ratings+play counts in the correct order for mass tagger (which we&#8217;ll use later).</p>
+<p>2. Do a find+replace in your m3u playlist, or something similar to make sure all paths are <strong>absolute</strong>. Eg, your m3u lines should not just be &#8220;Music\Artist\song.mp3&#8221; but more like &#8220;C:\Users\UserName\Music\Artist\song.mp3&#8221;. A simple replace of &#8220;Music&#8221; with &#8220;C:\User\UserName\Music&#8221; would achieve this.</p>
+<p>3. Use <a href="http://blog-old.prashantv.com/wp-content/uploads/2010/11/iTunesToFoobar.zip">this application</a> to generate output for mass tagger. Click the button at the bottom, and select the exported playlist, and it will automatically find all the information using the iTunes COM interface. This will take a while (and the progress bar will go through twice). Once it&#8217;s done, you&#8217;ll have the mass tagger input data on the left, and any error information on the right. (Errors are not a bad thing, more like warnings for files which won&#8217;t have data exported).</p>
+<p>3. Load up foobar2000, make sure you select the exact same songs you generated the m3u from, right click, choose Tagging > Manage Scripts. Clear any existing actions. Choose Add -> &#8220;Input Data (one line per track)&#8221;. For the scheme enter:<br />
+<code>%rating%|%play_count%|%last_played%|%skip_count%|%last_skipped%|%added%</code><br />
+In the Input data section, copy and paste all the output from the left box from the earlier application and press OK.<br />
+Ensure that the data changes in the output preview look OK, and if so, press &#8220;Run&#8221;. This will take a while.</p>
+<p>4. Now, all the data has been written to your tags. You can select all your tracks, right click, and chosoe Playback Satistics -> Import statistics from file tags. This will import all your data into the play counts component. Once imported, feel free to remove tags added (%rating%, %play_count%, %skip_count%, %last_played%, %last_skipped%, %added%) from the tags using mass tagger again.</p>
+<p>And that&#8217;s it! Hopefully all your data has been imported into foobar2000.</p>
+<p>PS: you can check out the source for the above application <a href="https://github.com/prashantv/iTunesToFoobar">here</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://blog-old.prashantv.com/2010/11/itunes-to-foobar2000/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>
