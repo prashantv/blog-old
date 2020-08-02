@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-AU" class="no-js"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script><title>foobar2k – My Tech Spot</title><link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//s.w.org"><link href="https://fonts.gstatic.com" crossorigin rel="preconnect"><link rel="stylesheet" id="wp-block-library-css" href="https://blog-old.prashantv.com/wp-includes/css/dist/block-library/style.min.css" media="all"><link rel="stylesheet" id="wp-block-library-theme-css" href="https://blog-old.prashantv.com/wp-includes/css/dist/block-library/theme.min.css" media="all"><link rel="stylesheet" id="php-info-wp-css" href="https://blog-old.prashantv.com/wp-content/plugins/php-info-wp/phpinfo.css" media="all"><link rel="stylesheet" id="twentysixteen-fonts-css" href="https://fonts.googleapis.com/css?family=Merriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&subset=latin%2Clatin-ext&display=fallback" media="all"><link rel="stylesheet" id="genericons-css" href="https://blog-old.prashantv.com/wp-content/themes/twentysixteen/genericons/genericons.css" media="all"><link rel="stylesheet" id="twentysixteen-style-css" href="https://blog-old.prashantv.com/wp-content/themes/twentysixteen/style.css" media="all"><link rel="stylesheet" id="twentysixteen-block-style-css" href="https://blog-old.prashantv.com/wp-content/themes/twentysixteen/css/blocks.css" media="all"><script src="https://blog-old.prashantv.com/wp-includes/js/jquery/jquery.js"></script><script src="https://blog-old.prashantv.com/wp-includes/js/jquery/jquery-migrate.min.js"></script><style>.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style></head><body class="archive tag tag-foobar2k tag-19 wp-embed-responsive hfeed">
+<div id="page" class="site">
+	<div class="site-inner">
+		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+		<header id="masthead" class="site-header" role="banner"><div class="site-header-main">
+				<div class="site-branding">
+					
+											<p class="site-title"><a href="https://blog-old.prashantv.com/" rel="home">My Tech Spot</a></p>
+												<p class="site-description">Just another WordPress site</p>
+									</div>
+
+							</div>
+
+					</header><div id="content" class="site-content">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main"><header class="page-header"><h1 class="page-title">Tag: foobar2k</h1>			</header><article id="post-53" class="post-53 post type-post status-publish format-standard hentry category-uncategorized tag-export tag-foobar2000 tag-foobar2k tag-import tag-itunes tag-playcounts tag-ratings"><header class="entry-header"><h2 class="entry-title"><a href="https://blog-old.prashantv.com/2010/11/itunes-to-foobar2000/" rel="bookmark">iTunes to foobar2000</a></h2>	</header><div class="entry-content">
+		<p>I got sick of iTunes, and decided to move to foobar2000. The biggest things that annoyed me about iTunes:</p>
+<ul><li>Speed, or lack of. It is the slowest responding application I use, and I really dislike it</li>
+<li>No support for global media keys, and the plugin I used to use stopped working too..</li>
+<li>No <a href="http://www.google.com.au/images?q=milkdrop&um=1&ie=UTF-8&source=og&sa=N&hl=en&tab=wi&biw=1436&bih=784">Milkdrop</a> support (on Windows, Mac users get projectM at least)</li>
+<li>Sound check sucks. I got sick of some songs getting way too loud for no reason, because the sound check thought the song was too quiet</li>
+</ul><p>The list could go on and on.. but I’ll focus on the migration itself.</p>
+<p>First, I installed <a href="http://www.foobar2000.org/">foobar2000</a> from the website, no issues. Configured a few options to my liking, got it to use my music folder.</p>
+<p>My main step was ReplayGain, so I ran it and let it go for 2 hours. Unlike iTunes however, even when something is being processed, foobar2000 still lets me use the main interface which was great. Unfortunately I couldn’t try components, as they need a restart, so that had to wait till later.</p>
+<p>Once all my tracks had their ReplayGain data, I decided to import my play counts, ratings, and other similar data from iTunes. This is where I hit a roadblock. I found a couple of posts that seemed to look OK, but didn’t really work our for me. So I decided to come up with a way and document it.</p>
+<hr><p>Note: you need foobar2000, iTunes and the play counts and mass tagger components.</p>
+<p>1. Make sure all the files in foobar2000 are also in iTunes, and export a <strong>m3u</strong> playlist from foobar2000. This playlist is used to generate the ratings+play counts in the correct order for mass tagger (which we’ll use later).</p>
+<p>2. Do a find+replace in your m3u playlist, or something similar to make sure all paths are <strong>absolute</strong>. Eg, your m3u lines should not just be “Music\Artist\song.mp3” but more like “C:\Users\UserName\Music\Artist\song.mp3”. A simple replace of “Music” with “C:\User\UserName\Music” would achieve this.</p>
+<p>3. Use <a href="http://PLACEHOLDER.wpsho/wp-content/uploads/2010/11/iTunesToFoobar.zip">this application</a> to generate output for mass tagger. Click the button at the bottom, and select the exported playlist, and it will automatically find all the information using the iTunes COM interface. This will take a while (and the progress bar will go through twice). Once it’s done, you’ll have the mass tagger input data on the left, and any error information on the right. (Errors are not a bad thing, more like warnings for files which won’t have data exported).</p>
+<p>3. Load up foobar2000, make sure you select the exact same songs you generated the m3u from, right click, choose Tagging > Manage Scripts. Clear any existing actions. Choose Add -> “Input Data (one line per track)”. For the scheme enter:<br><code>%rating%|%play_count%|%last_played%|%skip_count%|%last_skipped%|%added%</code><br>
+In the Input data section, copy and paste all the output from the left box from the earlier application and press OK.<br>
+Ensure that the data changes in the output preview look OK, and if so, press “Run”. This will take a while.</p>
+<p>4. Now, all the data has been written to your tags. You can select all your tracks, right click, and chosoe Playback Satistics -> Import statistics from file tags. This will import all your data into the play counts component. Once imported, feel free to remove tags added (%rating%, %play_count%, %skip_count%, %last_played%, %last_skipped%, %added%) from the tags using mass tagger again.</p>
+<p>And that’s it! Hopefully all your data has been imported into foobar2000.</p>
+<p>PS: you can check out the source for the above application <a href="https://github.com/prashantv/iTunesToFoobar">here</a>.</p>
+	</div>
+
+	<footer class="entry-footer"><span class="byline"><span class="author vcard"><img alt="" src="https://secure.gravatar.com/avatar/18436307d175c41e323620aa791240e6?s=49&d=mm&r=g" srcset="https://secure.gravatar.com/avatar/18436307d175c41e323620aa791240e6?s=98&d=mm&r=g 2x" class="avatar avatar-49 photo" height="49" width="49"><span class="screen-reader-text">Author </span> <a class="url fn n" href="https://blog-old.prashantv.com/author/prashant/">prashant</a></span></span><span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="https://blog-old.prashantv.com/2010/11/itunes-to-foobar2000/" rel="bookmark"><time class="entry-date published updated" datetime="2010-11-27T23:26:50+00:00">November 27, 2010</time></a></span><span class="cat-links"><span class="screen-reader-text">Categories </span><a href="https://blog-old.prashantv.com/category/uncategorized/" rel="category tag">Uncategorized</a></span><span class="tags-links"><span class="screen-reader-text">Tags </span><a href="https://blog-old.prashantv.com/tag/export/" rel="tag">export</a>, <a href="https://blog-old.prashantv.com/tag/foobar2000/" rel="tag">foobar2000</a>, <a href="https://blog-old.prashantv.com/tag/foobar2k/" rel="tag">foobar2k</a>, <a href="https://blog-old.prashantv.com/tag/import/" rel="tag">import</a>, <a href="https://blog-old.prashantv.com/tag/itunes/" rel="tag">itunes</a>, <a href="https://blog-old.prashantv.com/tag/playcounts/" rel="tag">playcounts</a>, <a href="https://blog-old.prashantv.com/tag/ratings/" rel="tag">ratings</a></span><span class="comments-link"><a href="https://blog-old.prashantv.com/2010/11/itunes-to-foobar2000/#comments">1 Comment<span class="screen-reader-text"> on iTunes to foobar2000</span></a></span>			</footer></article></main></div>
+
+
+	<aside id="secondary" class="sidebar widget-area" role="complementary"><section id="search-2" class="widget widget_search"><form role="search" method="get" class="search-form" action="https://blog-old.prashantv.com/">
+	<label>
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" class="search-field" placeholder="Search …" value="" name="s"></label>
+	<button type="submit" class="search-submit"><span class="screen-reader-text">Search</span></button>
+</form>
+</section><section id="recent-posts-2" class="widget widget_recent_entries"><h2 class="widget-title">Recent Posts</h2>		<ul><li>
+					<a href="https://blog-old.prashantv.com/2010/11/itunes-to-foobar2000/">iTunes to foobar2000</a>
+									</li>
+											<li>
+					<a href="https://blog-old.prashantv.com/2010/10/use-word-by-word-diff-when-using-version-control-for-latex/">Use word-by-word diff when using version control for LaTeX</a>
+									</li>
+											<li>
+					<a href="https://blog-old.prashantv.com/2010/08/python-vs-c/">Python vs C++</a>
+									</li>
+											<li>
+					<a href="https://blog-old.prashantv.com/2010/07/getting-around-flash-streaming-sites-using-a-proxy-server/">Getting around flash streaming sites using a proxy server</a>
+									</li>
+											<li>
+					<a href="https://blog-old.prashantv.com/2009/09/multiclutch-fixes-instructions/">Multiclutch Fixes + Better Instructions</a>
+									</li>
+					</ul></section><section id="recent-comments-2" class="widget widget_recent_comments"><h2 class="widget-title">Recent Comments</h2><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link">Iakov</span> on <a href="https://blog-old.prashantv.com/2009/09/multiclutch-fixes-instructions/#comment-94">Multiclutch Fixes + Better Instructions</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://stimuli.ca" rel="external nofollow ugc" class="url">Rupert</a></span> on <a href="https://blog-old.prashantv.com/2010/11/itunes-to-foobar2000/#comment-96">iTunes to foobar2000</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://michaelparting.carbonmade.com/" rel="external nofollow ugc" class="url">Michael</a></span> on <a href="https://blog-old.prashantv.com/2009/09/multiclutch-fixes-instructions/#comment-93">Multiclutch Fixes + Better Instructions</a></li><li class="recentcomments"><span class="comment-author-link">Grant</span> on <a href="https://blog-old.prashantv.com/2009/09/multiclutch-fixes-instructions/#comment-92">Multiclutch Fixes + Better Instructions</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://www.prashantv.com" rel="external nofollow ugc" class="url">prashant</a></span> on <a href="https://blog-old.prashantv.com/2009/09/multiclutch-fixes-instructions/#comment-91">Multiclutch Fixes + Better Instructions</a></li></ul></section><section id="archives-2" class="widget widget_archive"><h2 class="widget-title">Archives</h2>		<ul><li><a href="https://blog-old.prashantv.com/2010/11/">November 2010</a></li>
+	<li><a href="https://blog-old.prashantv.com/2010/10/">October 2010</a></li>
+	<li><a href="https://blog-old.prashantv.com/2010/08/">August 2010</a></li>
+	<li><a href="https://blog-old.prashantv.com/2010/07/">July 2010</a></li>
+	<li><a href="https://blog-old.prashantv.com/2009/09/">September 2009</a></li>
+	<li><a href="https://blog-old.prashantv.com/2008/11/">November 2008</a></li>
+		</ul></section><section id="categories-2" class="widget widget_categories"><h2 class="widget-title">Categories</h2>		<ul><li class="cat-item cat-item-2"><a href="https://blog-old.prashantv.com/category/flash/">flash</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="https://blog-old.prashantv.com/category/imap/">imap</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="https://blog-old.prashantv.com/category/mail/">mail</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="https://blog-old.prashantv.com/category/multiclutch/">multiclutch</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="https://blog-old.prashantv.com/category/osx/">osx</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="https://blog-old.prashantv.com/category/outlook/">outlook</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="https://blog-old.prashantv.com/category/perl/">perl</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="https://blog-old.prashantv.com/category/ps3/">ps3</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="https://blog-old.prashantv.com/category/ubuntu/">ubuntu</a>
+</li>
+	<li class="cat-item cat-item-11"><a href="https://blog-old.prashantv.com/category/uncategorized/">Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-12"><a href="https://blog-old.prashantv.com/category/vaio/">vaio</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="https://blog-old.prashantv.com/category/x64/">x64</a>
+</li>
+		</ul></section><section id="meta-2" class="widget widget_meta"><h2 class="widget-title">Meta</h2>			<ul><li><a href="https://blog-old.prashantv.com/wp-login.php">Log in</a></li>
+			<li><a href="https://blog-old.prashantv.com/feed/">Entries feed</a></li>
+			<li><a href="https://blog-old.prashantv.com/comments/feed/">Comments feed</a></li>
+			<li><a href="https://wordpress.org/">WordPress.org</a></li>			</ul></section></aside></div>
+
+		<footer id="colophon" class="site-footer" role="contentinfo"><div class="site-info">
+								<span class="site-title"><a href="https://blog-old.prashantv.com/" rel="home">My Tech Spot</a></span>
+								<a href="https://wordpress.org/" class="imprint">
+					Proudly powered by WordPress				</a>
+			</div>
+		</footer></div>
+</div>
+
+<script src="https://blog-old.prashantv.com/wp-content/themes/twentysixteen/js/skip-link-focus-fix.js"></script><script>
+var screenReaderText = {"expand":"expand child menu","collapse":"collapse child menu"};
+</script><script src="https://blog-old.prashantv.com/wp-content/themes/twentysixteen/js/functions.js"></script></body></html>
