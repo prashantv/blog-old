@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>grooveshark &#8211; My Tech Spot</title>
+	<atom:link href="https://blog-old.prashantv.com/tag/grooveshark/feed/" rel="self" type="application/rss+xml" />
+	<link>https://blog-old.prashantv.com/</link>
+	<description>Just another WordPress site</description>
+	<lastBuildDate>Fri, 30 Jul 2010 13:42:28 +0000</lastBuildDate>
+	<language>en-AU</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.4.2</generator>
+	<item>
+		<title>Getting around flash streaming sites using a proxy server</title>
+		<link>https://blog-old.prashantv.com/2010/07/getting-around-flash-streaming-sites-using-a-proxy-server/</link>
+					<comments>https://blog-old.prashantv.com/2010/07/getting-around-flash-streaming-sites-using-a-proxy-server/#comments</comments>
+		
+		<dc:creator><![CDATA[prashant]]></dc:creator>
+		<pubDate>Fri, 30 Jul 2010 13:42:28 +0000</pubDate>
+				<category><![CDATA[flash]]></category>
+		<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[download]]></category>
+		<category><![CDATA[grooveshark]]></category>
+		<category><![CDATA[stream]]></category>
+		<guid isPermaLink="false">http://blog-old.prashantv.com/?p=35</guid>
+
+					<description><![CDATA[Getting around flash-based streaming sites to access the real file can be tricky.]]></description>
+										<content:encoded><![CDATA[<p>Sites that stream music or videos through Flash interfaces are extremely common, and most of the time can be circumvented easily either using:</p>
+<ul>
+<li>Online sites created solely for the purpose of extracting the real music or video URL </li>
+<li>Using Chrome&#8217;s developer tools to find the exact resources being loaded, and simply opening the largest file</li>
+<li>Browsing the source, decompiling the flash, and recreating the exact authenticated etc to access the file as if you were the real client.
+</li>
+</ul>
+<p></p>
+<p>This works great for most sites, but I recently came across a site that none of these worked on (grooveshark). For the educational value, I decided to try a new approach: write a simple HTTP proxy server that simply cached the file type that I wanted.</p>
+<p>The simplest way was to use Python and Twisted, and I found a great example of intercepting specific requests and modifying them <a href="http://blog.somethingaboutcode.com/?p=155">here</a>.</p>
+<p>I took the code there, and modified it so that it looked for the Content-Type I was looking for (audio/mpeg), and cached those files. I started up my HTTP server, told my browser to go to Grooveshark, listened to the file I wanted, and done! I had a cached copy of the file.</p>
+<p>This method will work with any site that uses HTTP.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://blog-old.prashantv.com/2010/07/getting-around-flash-streaming-sites-using-a-proxy-server/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>
