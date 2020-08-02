@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>safari &#8211; My Tech Spot</title>
+	<atom:link href="https://blog-old.prashantv.com/tag/safari/feed/" rel="self" type="application/rss+xml" />
+	<link>https://blog-old.prashantv.com/</link>
+	<description>Just another WordPress site</description>
+	<lastBuildDate>Mon, 21 Sep 2009 10:33:59 +0000</lastBuildDate>
+	<language>en-AU</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.4.2</generator>
+	<item>
+		<title>Multiclutch X64 SIMBL Plugin</title>
+		<link>https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/</link>
+					<comments>https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/#comments</comments>
+		
+		<dc:creator><![CDATA[prashant]]></dc:creator>
+		<pubDate>Mon, 21 Sep 2009 10:33:59 +0000</pubDate>
+				<category><![CDATA[multiclutch]]></category>
+		<category><![CDATA[osx]]></category>
+		<category><![CDATA[x64]]></category>
+		<category><![CDATA[safari]]></category>
+		<guid isPermaLink="false">http://blog-old.prashantv.com/?p=20</guid>
+
+					<description><![CDATA[Getting multiclutch working with Safari running in 64 bit mode.]]></description>
+										<content:encoded><![CDATA[<p>I am a huge fan of <a href="http://wcrawford.org/2008/02/28/everytime-i-think-about-you-i-touch-my-cell/">Multiclutch</a>, and I have been running Safari in 32 bit mode exclusively just so that I could keep using my multitouch gestures. It makes Safari so much more productive for me.</p>
+<p>Anyway, I really wanted to get it working under 64 bit, and the source was open! And, it seems that <a href="http://www.culater.net/software/SIMBL/SIMBL.php">SIMBL now works in 64 bit</a>! So I decided to port over the Multiclutch code which was available on GitHub to work in SIMBL. This was a very rough port as I don&#8217;t code in OSX at all, and I just wanted to get it working!</p>
+<p>What I modified:</p>
+<ul>
+<li>Added MulticlutchPlugin.[hm] to replace the NSApplication_GESTURES, that implements the SIMBL required load</li>
+<li>Modified Info.Plist to allow SIMBL to load it</li>
+</ul>
+<p>Again, it&#8217;s very rough, and the developer should clean it up before releasing it. At the moment, it only loads on Safari.</p>
+<p>A binary (Intel x64 only) for those who want to test it:<br />
+<a href="http://blog-old.prashantv.com/files/multiclutch/AirKeysInputManager.bundle.zip">Multiclutch SIMBL Bundle<br />
+</a></p>
+<p>The bundle has to be copied to ~/Library/Application Support/SIMBL/Plugins as per any other SIMBL plugin.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/feed/</wfw:commentRss>
+			<slash:comments>12</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>
