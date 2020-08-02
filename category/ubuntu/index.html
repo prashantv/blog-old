@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-AU" class="no-js"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script><title>ubuntu – My Tech Spot</title><link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//s.w.org"><link href="https://fonts.gstatic.com" crossorigin rel="preconnect"><link rel="stylesheet" id="wp-block-library-css" href="https://blog-old.prashantv.com/wp-includes/css/dist/block-library/style.min.css" media="all"><link rel="stylesheet" id="wp-block-library-theme-css" href="https://blog-old.prashantv.com/wp-includes/css/dist/block-library/theme.min.css" media="all"><link rel="stylesheet" id="php-info-wp-css" href="https://blog-old.prashantv.com/wp-content/plugins/php-info-wp/phpinfo.css" media="all"><link rel="stylesheet" id="twentysixteen-fonts-css" href="https://fonts.googleapis.com/css?family=Merriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&subset=latin%2Clatin-ext&display=fallback" media="all"><link rel="stylesheet" id="genericons-css" href="https://blog-old.prashantv.com/wp-content/themes/twentysixteen/genericons/genericons.css" media="all"><link rel="stylesheet" id="twentysixteen-style-css" href="https://blog-old.prashantv.com/wp-content/themes/twentysixteen/style.css" media="all"><link rel="stylesheet" id="twentysixteen-block-style-css" href="https://blog-old.prashantv.com/wp-content/themes/twentysixteen/css/blocks.css" media="all"><script src="https://blog-old.prashantv.com/wp-includes/js/jquery/jquery.js"></script><script src="https://blog-old.prashantv.com/wp-includes/js/jquery/jquery-migrate.min.js"></script><style>.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style></head><body class="archive category category-ubuntu category-10 wp-embed-responsive hfeed">
+<div id="page" class="site">
+	<div class="site-inner">
+		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+		<header id="masthead" class="site-header" role="banner"><div class="site-header-main">
+				<div class="site-branding">
+					
+											<p class="site-title"><a href="https://blog-old.prashantv.com/" rel="home">My Tech Spot</a></p>
+												<p class="site-description">Just another WordPress site</p>
+									</div>
+
+							</div>
+
+					</header><div id="content" class="site-content">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main"><header class="page-header"><h1 class="page-title">Category: ubuntu</h1>			</header><article id="post-6" class="post-6 post type-post status-publish format-standard hentry category-ubuntu category-vaio tag-fn tag-fs tag-fsfn tag-ubuntu tag-vaio"><header class="entry-header"><h2 class="entry-title"><a href="https://blog-old.prashantv.com/2008/11/vaio-fs-fn-keys-ubuntu-810/" rel="bookmark">Getting FN keys of Vaio VGN-FS38GP working in Ubuntu 8.10</a></h2>	</header><div class="entry-content">
+		<p>Ubuntu 8.10 does not support the Vaio FS series by default, and needs a little bit of hacking to get working. The old fsfn program does not work anymore unfortunately. Some poking around found me this error in my dmesg output everytime I pressed a FN key: </p>
+<blockquote><p>atkbd.c: Use ‘setkeycodes e075 <keycode>’ to make it known.<br>
+atkbd.c: Unknown key released (translated set 2, code 0xf5 on isa0060/serio0).</p></blockquote>
+<p>This was repeated multiple times. I also found that a file located at /sys/devices/platform/sony-laptop/fnkey had the right value after a FN key press.</p>
+<p>I realised I could combine these to come up with a hack solution that would work. I decided to write a perl script that would be called everytime a fn key was pressed, that would figure out which key was pressed (using the fnkey file) and then do the right thing.</p>
+<p>To get the key recognised to start our perl script, we use xbindkeys and we use the setkeycodes command. I made a <a href="http://PLACEHOLDER.wpsho/files/vaio_fs/vaio_keys.sh">script </a>that maps all FN keys to keycode 235. I then use this <a href="http://PLACEHOLDER.wpsho/files/vaio_fs/xbindkeysrc">.xbindkeysrc</a> (it must be named .xbindkeysrc in your home directory and you need to install xbindkeys) to start my perl script.</p>
+<p>The perl script itself just invokes some scripts that come with ubuntu. At the moment it only supports the volume controls and brightness (as these are what I wanted). The script is located <a href="http://PLACEHOLDER.wpsho/files/vaio_fs/vaio_keys.zip">here</a>.</p>
+<p>Turns out the ubuntu scripts need root access to run, so I ran the following commands to ensure all executions of the program run as root (I wasn’t too worried about security in this case..)</p>
+<blockquote><p>sudo chmod a+s /etc/acpi/sonybright.sh<br>
+sudo chmod a+s /usr/bin/acpi_fakekey </p></blockquote>
+<p>My files use hardcoded paths of /home/prashant so you will have to change those to make it work.</p>
+<p>All the files needed can be found here:<br><a href="http://PLACEHOLDER.wpsho/files/vaio_fs/">http://PLACEHOLDER.wpsho/files/vaio_fs/</a> </p>
+<p>I took a look at the driver (/drivers/misc/sony-laptop.c) and realised that fn keys do not generate any event in the sony-laptop code currently, and seem to only generate normal keyboard events. Unfortunately I don’t have any experience with the linux kernel to figure out how to fix it at the kernel level.</p>
+	</div>
+
+	<footer class="entry-footer"><span class="byline"><span class="author vcard"><img alt="" src="https://secure.gravatar.com/avatar/18436307d175c41e323620aa791240e6?s=49&d=mm&r=g" srcset="https://secure.gravatar.com/avatar/18436307d175c41e323620aa791240e6?s=98&d=mm&r=g 2x" class="avatar avatar-49 photo" height="49" width="49"><span class="screen-reader-text">Author </span> <a class="url fn n" href="https://blog-old.prashantv.com/author/prashant/">prashant</a></span></span><span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="https://blog-old.prashantv.com/2008/11/vaio-fs-fn-keys-ubuntu-810/" rel="bookmark"><time class="entry-date published updated" datetime="2008-11-28T18:12:29+00:00">November 28, 2008</time></a></span><span class="cat-links"><span class="screen-reader-text">Categories </span><a href="https://blog-old.prashantv.com/category/ubuntu/" rel="category tag">ubuntu</a>, <a href="https://blog-old.prashantv.com/category/vaio/" rel="category tag">vaio</a></span><span class="tags-links"><span class="screen-reader-text">Tags </span><a href="https://blog-old.prashantv.com/tag/fn/" rel="tag">fn</a>, <a href="https://blog-old.prashantv.com/tag/fs/" rel="tag">fs</a>, <a href="https://blog-old.prashantv.com/tag/fsfn/" rel="tag">fsfn</a>, <a href="https://blog-old.prashantv.com/tag/ubuntu/" rel="tag">ubuntu</a>, <a href="https://blog-old.prashantv.com/tag/vaio/" rel="tag">vaio</a></span><span class="comments-link"><a href="https://blog-old.prashantv.com/2008/11/vaio-fs-fn-keys-ubuntu-810/#comments">6 Comments<span class="screen-reader-text"> on Getting FN keys of Vaio VGN-FS38GP working in Ubuntu 8.10</span></a></span>			</footer></article></main></div>
+
+
+	<aside id="secondary" class="sidebar widget-area" role="complementary"><section id="search-2" class="widget widget_search"><form role="search" method="get" class="search-form" action="https://blog-old.prashantv.com/">
+	<label>
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" class="search-field" placeholder="Search …" value="" name="s"></label>
+	<button type="submit" class="search-submit"><span class="screen-reader-text">Search</span></button>
+</form>
+</section><section id="recent-posts-2" class="widget widget_recent_entries"><h2 class="widget-title">Recent Posts</h2>		<ul><li>
+					<a href="https://blog-old.prashantv.com/2010/11/itunes-to-foobar2000/">iTunes to foobar2000</a>
+									</li>
+											<li>
+					<a href="https://blog-old.prashantv.com/2010/10/use-word-by-word-diff-when-using-version-control-for-latex/">Use word-by-word diff when using version control for LaTeX</a>
+									</li>
+											<li>
+					<a href="https://blog-old.prashantv.com/2010/08/python-vs-c/">Python vs C++</a>
+									</li>
+											<li>
+					<a href="https://blog-old.prashantv.com/2010/07/getting-around-flash-streaming-sites-using-a-proxy-server/">Getting around flash streaming sites using a proxy server</a>
+									</li>
+											<li>
+					<a href="https://blog-old.prashantv.com/2009/09/multiclutch-fixes-instructions/">Multiclutch Fixes + Better Instructions</a>
+									</li>
+					</ul></section><section id="recent-comments-2" class="widget widget_recent_comments"><h2 class="widget-title">Recent Comments</h2><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link">Iakov</span> on <a href="https://blog-old.prashantv.com/2009/09/multiclutch-fixes-instructions/#comment-94">Multiclutch Fixes + Better Instructions</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://stimuli.ca" rel="external nofollow ugc" class="url">Rupert</a></span> on <a href="https://blog-old.prashantv.com/2010/11/itunes-to-foobar2000/#comment-96">iTunes to foobar2000</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://michaelparting.carbonmade.com/" rel="external nofollow ugc" class="url">Michael</a></span> on <a href="https://blog-old.prashantv.com/2009/09/multiclutch-fixes-instructions/#comment-93">Multiclutch Fixes + Better Instructions</a></li><li class="recentcomments"><span class="comment-author-link">Grant</span> on <a href="https://blog-old.prashantv.com/2009/09/multiclutch-fixes-instructions/#comment-92">Multiclutch Fixes + Better Instructions</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://www.prashantv.com" rel="external nofollow ugc" class="url">prashant</a></span> on <a href="https://blog-old.prashantv.com/2009/09/multiclutch-fixes-instructions/#comment-91">Multiclutch Fixes + Better Instructions</a></li></ul></section><section id="archives-2" class="widget widget_archive"><h2 class="widget-title">Archives</h2>		<ul><li><a href="https://blog-old.prashantv.com/2010/11/">November 2010</a></li>
+	<li><a href="https://blog-old.prashantv.com/2010/10/">October 2010</a></li>
+	<li><a href="https://blog-old.prashantv.com/2010/08/">August 2010</a></li>
+	<li><a href="https://blog-old.prashantv.com/2010/07/">July 2010</a></li>
+	<li><a href="https://blog-old.prashantv.com/2009/09/">September 2009</a></li>
+	<li><a href="https://blog-old.prashantv.com/2008/11/">November 2008</a></li>
+		</ul></section><section id="categories-2" class="widget widget_categories"><h2 class="widget-title">Categories</h2>		<ul><li class="cat-item cat-item-2"><a href="https://blog-old.prashantv.com/category/flash/">flash</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="https://blog-old.prashantv.com/category/imap/">imap</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="https://blog-old.prashantv.com/category/mail/">mail</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="https://blog-old.prashantv.com/category/multiclutch/">multiclutch</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="https://blog-old.prashantv.com/category/osx/">osx</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="https://blog-old.prashantv.com/category/outlook/">outlook</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="https://blog-old.prashantv.com/category/perl/">perl</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="https://blog-old.prashantv.com/category/ps3/">ps3</a>
+</li>
+	<li class="cat-item cat-item-10 current-cat"><a aria-current="page" href="https://blog-old.prashantv.com/category/ubuntu/">ubuntu</a>
+</li>
+	<li class="cat-item cat-item-11"><a href="https://blog-old.prashantv.com/category/uncategorized/">Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-12"><a href="https://blog-old.prashantv.com/category/vaio/">vaio</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="https://blog-old.prashantv.com/category/x64/">x64</a>
+</li>
+		</ul></section><section id="meta-2" class="widget widget_meta"><h2 class="widget-title">Meta</h2>			<ul><li><a href="https://blog-old.prashantv.com/wp-login.php">Log in</a></li>
+			<li><a href="https://blog-old.prashantv.com/feed/">Entries feed</a></li>
+			<li><a href="https://blog-old.prashantv.com/comments/feed/">Comments feed</a></li>
+			<li><a href="https://wordpress.org/">WordPress.org</a></li>			</ul></section></aside></div>
+
+		<footer id="colophon" class="site-footer" role="contentinfo"><div class="site-info">
+								<span class="site-title"><a href="https://blog-old.prashantv.com/" rel="home">My Tech Spot</a></span>
+								<a href="https://wordpress.org/" class="imprint">
+					Proudly powered by WordPress				</a>
+			</div>
+		</footer></div>
+</div>
+
+<script src="https://blog-old.prashantv.com/wp-content/themes/twentysixteen/js/skip-link-focus-fix.js"></script><script>
+var screenReaderText = {"expand":"expand child menu","collapse":"collapse child menu"};
+</script><script src="https://blog-old.prashantv.com/wp-content/themes/twentysixteen/js/functions.js"></script></body></html>
