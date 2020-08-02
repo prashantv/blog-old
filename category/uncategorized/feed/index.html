@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Uncategorized &#8211; My Tech Spot</title>
+	<atom:link href="https://blog-old.prashantv.com/category/uncategorized/feed/" rel="self" type="application/rss+xml" />
+	<link>https://blog-old.prashantv.com/</link>
+	<description>Just another WordPress site</description>
+	<lastBuildDate>Sat, 27 Nov 2010 13:26:50 +0000</lastBuildDate>
+	<language>en-AU</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.4.2</generator>
+	<item>
+		<title>iTunes to foobar2000</title>
+		<link>https://blog-old.prashantv.com/2010/11/itunes-to-foobar2000/</link>
+					<comments>https://blog-old.prashantv.com/2010/11/itunes-to-foobar2000/#comments</comments>
+		
+		<dc:creator><![CDATA[prashant]]></dc:creator>
+		<pubDate>Sat, 27 Nov 2010 13:26:50 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[export]]></category>
+		<category><![CDATA[foobar2000]]></category>
+		<category><![CDATA[foobar2k]]></category>
+		<category><![CDATA[import]]></category>
+		<category><![CDATA[itunes]]></category>
+		<category><![CDATA[playcounts]]></category>
+		<category><![CDATA[ratings]]></category>
+		<guid isPermaLink="false">http://blog-old.prashantv.com/?p=53</guid>
+
+					<description><![CDATA[I got sick of iTunes, and decided to move to foobar2000. The biggest things that annoyed me about iTunes: Speed, or lack of. It is the slowest responding application I use, and I really dislike it No support for global media keys, and the plugin I used to use stopped working too.. No Milkdrop support &#8230; <a href="https://blog-old.prashantv.com/2010/11/itunes-to-foobar2000/" class="more-link">Continue reading<span class="screen-reader-text"> "iTunes to foobar2000"</span></a>]]></description>
+										<content:encoded><![CDATA[<p>I got sick of iTunes, and decided to move to foobar2000. The biggest things that annoyed me about iTunes:</p>
+<ul>
+<li>Speed, or lack of. It is the slowest responding application I use, and I really dislike it</li>
+<li>No support for global media keys, and the plugin I used to use stopped working too..</li>
+<li>No <a href="http://www.google.com.au/images?q=milkdrop&#038;um=1&#038;ie=UTF-8&#038;source=og&#038;sa=N&#038;hl=en&#038;tab=wi&#038;biw=1436&#038;bih=784">Milkdrop</a> support (on Windows, Mac users get projectM at least)</li>
+<li>Sound check sucks. I got sick of some songs getting way too loud for no reason, because the sound check thought the song was too quiet</li>
+</ul>
+<p>The list could go on and on.. but I&#8217;ll focus on the migration itself.</p>
+<p>First, I installed <a href="http://www.foobar2000.org/">foobar2000</a> from the website, no issues. Configured a few options to my liking, got it to use my music folder.</p>
+<p>My main step was ReplayGain, so I ran it and let it go for 2 hours. Unlike iTunes however, even when something is being processed, foobar2000 still lets me use the main interface which was great. Unfortunately I couldn&#8217;t try components, as they need a restart, so that had to wait till later.</p>
+<p>Once all my tracks had their ReplayGain data, I decided to import my play counts, ratings, and other similar data from iTunes. This is where I hit a roadblock. I found a couple of posts that seemed to look OK, but didn&#8217;t really work our for me. So I decided to come up with a way and document it.</p>
+<hr />
+<p>Note: you need foobar2000, iTunes and the play counts and mass tagger components.</p>
+<p>1. Make sure all the files in foobar2000 are also in iTunes, and export a <strong>m3u</strong> playlist from foobar2000. This playlist is used to generate the ratings+play counts in the correct order for mass tagger (which we&#8217;ll use later).</p>
+<p>2. Do a find+replace in your m3u playlist, or something similar to make sure all paths are <strong>absolute</strong>. Eg, your m3u lines should not just be &#8220;Music\Artist\song.mp3&#8221; but more like &#8220;C:\Users\UserName\Music\Artist\song.mp3&#8221;. A simple replace of &#8220;Music&#8221; with &#8220;C:\User\UserName\Music&#8221; would achieve this.</p>
+<p>3. Use <a href="http://blog-old.prashantv.com/wp-content/uploads/2010/11/iTunesToFoobar.zip">this application</a> to generate output for mass tagger. Click the button at the bottom, and select the exported playlist, and it will automatically find all the information using the iTunes COM interface. This will take a while (and the progress bar will go through twice). Once it&#8217;s done, you&#8217;ll have the mass tagger input data on the left, and any error information on the right. (Errors are not a bad thing, more like warnings for files which won&#8217;t have data exported).</p>
+<p>3. Load up foobar2000, make sure you select the exact same songs you generated the m3u from, right click, choose Tagging > Manage Scripts. Clear any existing actions. Choose Add -> &#8220;Input Data (one line per track)&#8221;. For the scheme enter:<br />
+<code>%rating%|%play_count%|%last_played%|%skip_count%|%last_skipped%|%added%</code><br />
+In the Input data section, copy and paste all the output from the left box from the earlier application and press OK.<br />
+Ensure that the data changes in the output preview look OK, and if so, press &#8220;Run&#8221;. This will take a while.</p>
+<p>4. Now, all the data has been written to your tags. You can select all your tracks, right click, and chosoe Playback Satistics -> Import statistics from file tags. This will import all your data into the play counts component. Once imported, feel free to remove tags added (%rating%, %play_count%, %skip_count%, %last_played%, %last_skipped%, %added%) from the tags using mass tagger again.</p>
+<p>And that&#8217;s it! Hopefully all your data has been imported into foobar2000.</p>
+<p>PS: you can check out the source for the above application <a href="https://github.com/prashantv/iTunesToFoobar">here</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://blog-old.prashantv.com/2010/11/itunes-to-foobar2000/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Use word-by-word diff when using version control for LaTeX</title>
+		<link>https://blog-old.prashantv.com/2010/10/use-word-by-word-diff-when-using-version-control-for-latex/</link>
+					<comments>https://blog-old.prashantv.com/2010/10/use-word-by-word-diff-when-using-version-control-for-latex/#respond</comments>
+		
+		<dc:creator><![CDATA[prashant]]></dc:creator>
+		<pubDate>Sun, 31 Oct 2010 11:42:23 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<guid isPermaLink="false">http://blog-old.prashantv.com/?p=49</guid>
+
+					<description><![CDATA[I found this a bit late, but it&#8217;s ridiculously useful to use a word-by-word diff rather than a standard line-by-line diff when writing papers. Here&#8217;s how you can enable it in Mercurial: Mercurial Word Diff Turns out this feature is already part of git though! Just run: git diff --color-words]]></description>
+										<content:encoded><![CDATA[<p>I found this a bit late, but it&#8217;s ridiculously useful to use a word-by-word diff rather than a standard line-by-line diff when writing papers.</p>
+<p>Here&#8217;s how you can enable it in Mercurial:<br />
+<a href="http://mercurial.selenic.com/wiki/WordDiff">Mercurial Word Diff</a></p>
+<p>Turns out this feature is already part of git though! Just run:<br />
+<code>git diff --color-words</code></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://blog-old.prashantv.com/2010/10/use-word-by-word-diff-when-using-version-control-for-latex/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Python vs C++</title>
+		<link>https://blog-old.prashantv.com/2010/08/python-vs-c/</link>
+					<comments>https://blog-old.prashantv.com/2010/08/python-vs-c/#respond</comments>
+		
+		<dc:creator><![CDATA[prashant]]></dc:creator>
+		<pubDate>Mon, 23 Aug 2010 12:36:08 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<guid isPermaLink="false">http://blog-old.prashantv.com/?p=46</guid>
+
+					<description><![CDATA[I was writing some image processing code (using OpenCV) and found that my python code was too slow for my liking. So I converted it to C++! How painful was this? It took me less than an hour to convert the code, and I got a good 100x speedup! Use the right language for the &#8230; <a href="https://blog-old.prashantv.com/2010/08/python-vs-c/" class="more-link">Continue reading<span class="screen-reader-text"> "Python vs C++"</span></a>]]></description>
+										<content:encoded><![CDATA[<p>I was writing some image processing code (using OpenCV) and found that my python code was too slow for my liking. So I converted it to C++! How painful was this? It took me less than an hour to convert the code, and I got a good 100x speedup! Use the right language for the right task..</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://blog-old.prashantv.com/2010/08/python-vs-c/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Getting around flash streaming sites using a proxy server</title>
+		<link>https://blog-old.prashantv.com/2010/07/getting-around-flash-streaming-sites-using-a-proxy-server/</link>
+					<comments>https://blog-old.prashantv.com/2010/07/getting-around-flash-streaming-sites-using-a-proxy-server/#comments</comments>
+		
+		<dc:creator><![CDATA[prashant]]></dc:creator>
+		<pubDate>Fri, 30 Jul 2010 13:42:28 +0000</pubDate>
+				<category><![CDATA[flash]]></category>
+		<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[download]]></category>
+		<category><![CDATA[grooveshark]]></category>
+		<category><![CDATA[stream]]></category>
+		<guid isPermaLink="false">http://blog-old.prashantv.com/?p=35</guid>
+
+					<description><![CDATA[Getting around flash-based streaming sites to access the real file can be tricky.]]></description>
+										<content:encoded><![CDATA[<p>Sites that stream music or videos through Flash interfaces are extremely common, and most of the time can be circumvented easily either using:</p>
+<ul>
+<li>Online sites created solely for the purpose of extracting the real music or video URL </li>
+<li>Using Chrome&#8217;s developer tools to find the exact resources being loaded, and simply opening the largest file</li>
+<li>Browsing the source, decompiling the flash, and recreating the exact authenticated etc to access the file as if you were the real client.
+</li>
+</ul>
+<p></p>
+<p>This works great for most sites, but I recently came across a site that none of these worked on (grooveshark). For the educational value, I decided to try a new approach: write a simple HTTP proxy server that simply cached the file type that I wanted.</p>
+<p>The simplest way was to use Python and Twisted, and I found a great example of intercepting specific requests and modifying them <a href="http://blog.somethingaboutcode.com/?p=155">here</a>.</p>
+<p>I took the code there, and modified it so that it looked for the Content-Type I was looking for (audio/mpeg), and cached those files. I started up my HTTP server, told my browser to go to Grooveshark, listened to the file I wanted, and done! I had a cached copy of the file.</p>
+<p>This method will work with any site that uses HTTP.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://blog-old.prashantv.com/2010/07/getting-around-flash-streaming-sites-using-a-proxy-server/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>
