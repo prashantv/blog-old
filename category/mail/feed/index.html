@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>mail &#8211; My Tech Spot</title>
+	<atom:link href="https://blog-old.prashantv.com/category/mail/feed/" rel="self" type="application/rss+xml" />
+	<link>https://blog-old.prashantv.com/</link>
+	<description>Just another WordPress site</description>
+	<lastBuildDate>Tue, 25 Nov 2008 12:21:32 +0000</lastBuildDate>
+	<language>en-AU</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.4.2</generator>
+	<item>
+		<title>Perl Mail Checker</title>
+		<link>https://blog-old.prashantv.com/2008/11/perl-mail-checker/</link>
+					<comments>https://blog-old.prashantv.com/2008/11/perl-mail-checker/#respond</comments>
+		
+		<dc:creator><![CDATA[prashant]]></dc:creator>
+		<pubDate>Tue, 25 Nov 2008 12:21:32 +0000</pubDate>
+				<category><![CDATA[imap]]></category>
+		<category><![CDATA[mail]]></category>
+		<category><![CDATA[outlook]]></category>
+		<category><![CDATA[perl]]></category>
+		<category><![CDATA[notify]]></category>
+		<category><![CDATA[systray]]></category>
+		<category><![CDATA[win32]]></category>
+		<guid isPermaLink="false">http://blog-old.prashantv.com/?p=10</guid>
+
+					<description><![CDATA[So I got sick of Outlook eating all my RAM. I have it open all the time during the day, so that I can see when I have new email. However, it also ate are about 140mb of my ram to do this simple task. I wanted a light replacement. I tried some programs on &#8230; <a href="https://blog-old.prashantv.com/2008/11/perl-mail-checker/" class="more-link">Continue reading<span class="screen-reader-text"> "Perl Mail Checker"</span></a>]]></description>
+										<content:encoded><![CDATA[<p>So I got sick of Outlook eating all my RAM. I have it open all the time during the day, so that I can see when I have new email. However, it also ate are about 140mb of my ram to do this simple task.</p>
+<div>
+<div>I wanted a light replacement. I tried some programs on the net but they used a fair bit of RAM. So decided I would write my own simple client in .NET that did exactly what I wanted.</div>
+<div>While I was looking for .NET libraries to access my IMAP mail server, I found </div>
+<div><a href="http://search.cpan.org/~jpaf/Net-IMAP-Simple-0.93/Simple.pm">http://search.cpan.org/~jpaf/Net-IMAP-Simple-0.93/Simple.pm</a></div>
+<div>It looked pretty useful, and I realised perl would be a <em>lot</em> easier.. But I wanted a system tray icon when I had new mail.. Some more googling found me..</div>
+<p><a href="http://perl-win32-gui.sourceforge.net/cgi-bin/docs.cgi?doc=notifyicon">http://perl-win32-gui.sourceforge.net/cgi-bin/docs.cgi?doc=notifyicon</a></p>
+<div>So I decided to play with it. And by the end of it, I got myself a nice simple imap mail checker using perl.</div>
+<div>The way it works is not like most mail checkers. It does not run all the time. It only runs, checks if there is new mail, and if not, closes. So the way I use it:</div>
+<div>
+<ul>
+<li>Task Scheduler starts my script every 3 minutes</li>
+<li>Script runs, and if there is no mail, closes. If there is mail, show a notify icon (for 2 minutes)</li>
+<li>I click the notify icon to open Outlook.</li>
+</ul>
+</div>
+<div>The advantage &#8211; when there is no new mail, a new process is started every 3 minutes, and it ends straight away. When there is new mail, perl continues running, which takes up barely any ram. (13 mb last time I checked). I click the icon and Outlook starts up, allowing me to read the mail in my usual client.</div>
+<div>So, RAM usage has been minimized, yet I am not missing any features. Files for this can be found <a href="http://blog-old.prashantv.com/files/mail_checker/mailchecker.zip">here</a>.</div>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://blog-old.prashantv.com/2008/11/perl-mail-checker/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>
