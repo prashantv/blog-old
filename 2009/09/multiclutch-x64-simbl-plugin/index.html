@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en-AU" class="no-js"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script><title>Multiclutch X64 SIMBL Plugin – My Tech Spot</title><link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//s.w.org"><link href="https://fonts.gstatic.com" crossorigin rel="preconnect"><link rel="stylesheet" id="wp-block-library-css" href="https://blog-old.prashantv.com/wp-includes/css/dist/block-library/style.min.css" media="all"><link rel="stylesheet" id="wp-block-library-theme-css" href="https://blog-old.prashantv.com/wp-includes/css/dist/block-library/theme.min.css" media="all"><link rel="stylesheet" id="php-info-wp-css" href="https://blog-old.prashantv.com/wp-content/plugins/php-info-wp/phpinfo.css" media="all"><link rel="stylesheet" id="twentysixteen-fonts-css" href="https://fonts.googleapis.com/css?family=Merriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&subset=latin%2Clatin-ext&display=fallback" media="all"><link rel="stylesheet" id="genericons-css" href="https://blog-old.prashantv.com/wp-content/themes/twentysixteen/genericons/genericons.css" media="all"><link rel="stylesheet" id="twentysixteen-style-css" href="https://blog-old.prashantv.com/wp-content/themes/twentysixteen/style.css" media="all"><link rel="stylesheet" id="twentysixteen-block-style-css" href="https://blog-old.prashantv.com/wp-content/themes/twentysixteen/css/blocks.css" media="all"><script src="https://blog-old.prashantv.com/wp-includes/js/jquery/jquery.js"></script><script src="https://blog-old.prashantv.com/wp-includes/js/jquery/jquery-migrate.min.js"></script><style>.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style></head><body class="post-template-default single single-post postid-20 single-format-standard wp-embed-responsive">
+<div id="page" class="site">
+	<div class="site-inner">
+		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+		<header id="masthead" class="site-header" role="banner"><div class="site-header-main">
+				<div class="site-branding">
+					
+											<p class="site-title"><a href="https://blog-old.prashantv.com/" rel="home">My Tech Spot</a></p>
+												<p class="site-description">Just another WordPress site</p>
+									</div>
+
+							</div>
+
+					</header><div id="content" class="site-content">
+
+<div id="primary" class="content-area">
+	<main id="main" class="site-main" role="main"><article id="post-20" class="post-20 post type-post status-publish format-standard hentry category-multiclutch category-osx category-x64 tag-multiclutch tag-osx tag-safari tag-x64"><header class="entry-header"><h1 class="entry-title">Multiclutch X64 SIMBL Plugin</h1>	</header><div class="entry-summary">
+				<p>Getting multiclutch working with Safari running in 64 bit mode.</p>
+			</div>
+			
+	
+	<div class="entry-content">
+		<p>I am a huge fan of <a href="http://wcrawford.org/2008/02/28/everytime-i-think-about-you-i-touch-my-cell/">Multiclutch</a>, and I have been running Safari in 32 bit mode exclusively just so that I could keep using my multitouch gestures. It makes Safari so much more productive for me.</p>
+<p>Anyway, I really wanted to get it working under 64 bit, and the source was open! And, it seems that <a href="http://www.culater.net/software/SIMBL/SIMBL.php">SIMBL now works in 64 bit</a>! So I decided to port over the Multiclutch code which was available on GitHub to work in SIMBL. This was a very rough port as I don’t code in OSX at all, and I just wanted to get it working!</p>
+<p>What I modified:</p>
+<ul><li>Added MulticlutchPlugin.[hm] to replace the NSApplication_GESTURES, that implements the SIMBL required load</li>
+<li>Modified Info.Plist to allow SIMBL to load it</li>
+</ul><p>Again, it’s very rough, and the developer should clean it up before releasing it. At the moment, it only loads on Safari.</p>
+<p>A binary (Intel x64 only) for those who want to test it:<br><a href="http://PLACEHOLDER.wpsho/files/multiclutch/AirKeysInputManager.bundle.zip">Multiclutch SIMBL Bundle<br></a></p>
+<p>The bundle has to be copied to ~/Library/Application Support/SIMBL/Plugins as per any other SIMBL plugin.</p>
+	</div>
+
+	<footer class="entry-footer"><span class="byline"><span class="author vcard"><img alt="" src="https://secure.gravatar.com/avatar/18436307d175c41e323620aa791240e6?s=49&d=mm&r=g" srcset="https://secure.gravatar.com/avatar/18436307d175c41e323620aa791240e6?s=98&d=mm&r=g 2x" class="avatar avatar-49 photo" height="49" width="49"><span class="screen-reader-text">Author </span> <a class="url fn n" href="https://blog-old.prashantv.com/author/prashant/">prashant</a></span></span><span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/" rel="bookmark"><time class="entry-date published updated" datetime="2009-09-21T18:33:59+00:00">September 21, 2009</time></a></span><span class="cat-links"><span class="screen-reader-text">Categories </span><a href="https://blog-old.prashantv.com/category/multiclutch/" rel="category tag">multiclutch</a>, <a href="https://blog-old.prashantv.com/category/osx/" rel="category tag">osx</a>, <a href="https://blog-old.prashantv.com/category/x64/" rel="category tag">x64</a></span><span class="tags-links"><span class="screen-reader-text">Tags </span><a href="https://blog-old.prashantv.com/tag/multiclutch/" rel="tag">multiclutch</a>, <a href="https://blog-old.prashantv.com/tag/osx/" rel="tag">osx</a>, <a href="https://blog-old.prashantv.com/tag/safari/" rel="tag">safari</a>, <a href="https://blog-old.prashantv.com/tag/x64/" rel="tag">x64</a></span>			</footer></article><div id="comments" class="comments-area">
+
+			<h2 class="comments-title">
+			12 thoughts on “Multiclutch X64 SIMBL Plugin”		</h2>
+
+		
+		<ol class="comment-list"><li id="comment-19" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-19" class="comment-body"><footer class="comment-meta"><div class="comment-author vcard">
+						<img alt="" src="https://secure.gravatar.com/avatar/362deb1da5d8f8e922f2f707d7217250?s=42&d=mm&r=g" srcset="https://secure.gravatar.com/avatar/362deb1da5d8f8e922f2f707d7217250?s=84&d=mm&r=g 2x" class="avatar avatar-42 photo" height="42" width="42"><b class="fn">ottid888</b> <span class="says">says:</span>					</div>
+
+					<div class="comment-metadata">
+						<a href="https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/#comment-19">
+							<time datetime="2009-09-27T01:50:21+00:00">
+								September 27, 2009 at 1:50 am							</time></a>
+											</div>
+
+									</footer><div class="comment-content">
+					<p>hi, installed SIMBL but i still can’t find the ~/Library/Application Support/SIMBL/Plugins directory anywhere.  is it hidden?  should i make it myself? have uninstalled and reinstalled SIMBL 0.9c three times already</p>
+				</div>
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/" data-commentid="19" data-postid="20" data-belowelement="div-comment-19" data-respondelement="respond" aria-label="Reply to ottid888">Reply</a></div>			</article><ol class="children"><li id="comment-20" class="comment byuser comment-author-prashant bypostauthor odd alt depth-2">
+			<article id="div-comment-20" class="comment-body"><footer class="comment-meta"><div class="comment-author vcard">
+						<img alt="" src="https://secure.gravatar.com/avatar/18436307d175c41e323620aa791240e6?s=42&d=mm&r=g" srcset="https://secure.gravatar.com/avatar/18436307d175c41e323620aa791240e6?s=84&d=mm&r=g 2x" class="avatar avatar-42 photo" height="42" width="42"><b class="fn"><a href="http://www.prashantv.com" rel="external nofollow ugc" class="url">prashant</a></b> <span class="says">says:</span>					</div>
+
+					<div class="comment-metadata">
+						<a href="https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/#comment-20">
+							<time datetime="2009-09-27T09:57:22+00:00">
+								September 27, 2009 at 9:57 am							</time></a>
+											</div>
+
+									</footer><div class="comment-content">
+					<p>I think you can create that folder if it doesn’t exist – it’s been so long since I initially installed SIMBL that I can’t remember!</p>
+				</div>
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/" data-commentid="20" data-postid="20" data-belowelement="div-comment-20" data-respondelement="respond" aria-label="Reply to prashant">Reply</a></div>			</article></li>
+</ol></li>
+		<li id="comment-21" class="comment even thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-21" class="comment-body"><footer class="comment-meta"><div class="comment-author vcard">
+						<img alt="" src="https://secure.gravatar.com/avatar/a7063078a5003295be75b6bf94b7222b?s=42&d=mm&r=g" srcset="https://secure.gravatar.com/avatar/a7063078a5003295be75b6bf94b7222b?s=84&d=mm&r=g 2x" class="avatar avatar-42 photo" height="42" width="42"><b class="fn">Josh</b> <span class="says">says:</span>					</div>
+
+					<div class="comment-metadata">
+						<a href="https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/#comment-21">
+							<time datetime="2009-09-27T11:42:48+00:00">
+								September 27, 2009 at 11:42 am							</time></a>
+											</div>
+
+									</footer><div class="comment-content">
+					<p>This is amazing… Fantastic job! One problem, however, is that the AirKeysInputManager.bundle causes Firefox to crash following any trackpad gestures (except single-finger mouse positioning and clicking). Do you think this has an easy fix?</p>
+				</div>
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/" data-commentid="21" data-postid="20" data-belowelement="div-comment-21" data-respondelement="respond" aria-label="Reply to Josh">Reply</a></div>			</article><ol class="children"><li id="comment-23" class="comment byuser comment-author-prashant bypostauthor odd alt depth-2">
+			<article id="div-comment-23" class="comment-body"><footer class="comment-meta"><div class="comment-author vcard">
+						<img alt="" src="https://secure.gravatar.com/avatar/18436307d175c41e323620aa791240e6?s=42&d=mm&r=g" srcset="https://secure.gravatar.com/avatar/18436307d175c41e323620aa791240e6?s=84&d=mm&r=g 2x" class="avatar avatar-42 photo" height="42" width="42"><b class="fn"><a href="http://www.prashantv.com" rel="external nofollow ugc" class="url">prashant</a></b> <span class="says">says:</span>					</div>
+
+					<div class="comment-metadata">
+						<a href="https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/#comment-23">
+							<time datetime="2009-09-27T12:32:52+00:00">
+								September 27, 2009 at 12:32 pm							</time></a>
+											</div>
+
+									</footer><div class="comment-content">
+					<p>Just a small update – I think I fixed the crashing. I’ve uploaded it to the same spot, so redownload it and try 🙂</p>
+				</div>
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/" data-commentid="23" data-postid="20" data-belowelement="div-comment-23" data-respondelement="respond" aria-label="Reply to prashant">Reply</a></div>			</article></li>
+</ol></li>
+		<li id="comment-22" class="comment byuser comment-author-prashant bypostauthor even thread-even depth-1">
+			<article id="div-comment-22" class="comment-body"><footer class="comment-meta"><div class="comment-author vcard">
+						<img alt="" src="https://secure.gravatar.com/avatar/18436307d175c41e323620aa791240e6?s=42&d=mm&r=g" srcset="https://secure.gravatar.com/avatar/18436307d175c41e323620aa791240e6?s=84&d=mm&r=g 2x" class="avatar avatar-42 photo" height="42" width="42"><b class="fn"><a href="http://www.prashantv.com" rel="external nofollow ugc" class="url">prashant</a></b> <span class="says">says:</span>					</div>
+
+					<div class="comment-metadata">
+						<a href="https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/#comment-22">
+							<time datetime="2009-09-27T12:07:30+00:00">
+								September 27, 2009 at 12:07 pm							</time></a>
+											</div>
+
+									</footer><div class="comment-content">
+					<p>Ah I was able to reproduce it for a few gestures. Can you try creating a shortcut in the prefpane for all gestures.</p>
+<p>The problem seems to be that some gestures aren’t being handled by multiclutch, and so they are sent to Firefox, which doesn’t expect it and crashes. So if Multiclutch handles all the gestures, it should work fine in FF.</p>
+<p>I am not yet sure how to fix it properly for future though.</p>
+				</div>
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/" data-commentid="22" data-postid="20" data-belowelement="div-comment-22" data-respondelement="respond" aria-label="Reply to prashant">Reply</a></div>			</article></li>
+		<li id="comment-24" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-24" class="comment-body"><footer class="comment-meta"><div class="comment-author vcard">
+						<img alt="" src="https://secure.gravatar.com/avatar/a7063078a5003295be75b6bf94b7222b?s=42&d=mm&r=g" srcset="https://secure.gravatar.com/avatar/a7063078a5003295be75b6bf94b7222b?s=84&d=mm&r=g 2x" class="avatar avatar-42 photo" height="42" width="42"><b class="fn">Josh</b> <span class="says">says:</span>					</div>
+
+					<div class="comment-metadata">
+						<a href="https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/#comment-24">
+							<time datetime="2009-09-27T21:19:54+00:00">
+								September 27, 2009 at 9:19 pm							</time></a>
+											</div>
+
+									</footer><div class="comment-content">
+					<p>Hi Prashant,</p>
+<p>  I can’t believe you got onto this so fast — great. I tried the new .bundle (did I get the right link? <a href="http://PLACEHOLDER.wpsho/files/multiclutch/AirKeysInputManager.bundle.zip" rel="nofollow ugc">http://PLACEHOLDER.wpsho/files/multiclutch/AirKeysInputManager.bundle.zip</a>).</p>
+<p>  It seems not to have fixed the problem on my machine. I’m afraid that’s not very helpful feedback…</p>
+<p>But your idea of assigning all the gestures in the prefpane for Firefox does work, in principle. So assigning three finger swipes stops them crashing Firefox (and they do implement the assigned shortcut). The problem for me is that two-fingered scrolling also crashes Firefox, and there is no option to assign shortcuts to this gesture in the Multiclutch prefpane.</p>
+<p>Thanks for all the time you’ve already spent on this. I should try learning something about all this instead of just complaining… If you would like any other info, let me know….</p>
+<p>Thanks again….</p>
+				</div>
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/" data-commentid="24" data-postid="20" data-belowelement="div-comment-24" data-respondelement="respond" aria-label="Reply to Josh">Reply</a></div>			</article></li>
+		<li id="comment-25" class="comment byuser comment-author-prashant bypostauthor even thread-even depth-1">
+			<article id="div-comment-25" class="comment-body"><footer class="comment-meta"><div class="comment-author vcard">
+						<img alt="" src="https://secure.gravatar.com/avatar/18436307d175c41e323620aa791240e6?s=42&d=mm&r=g" srcset="https://secure.gravatar.com/avatar/18436307d175c41e323620aa791240e6?s=84&d=mm&r=g 2x" class="avatar avatar-42 photo" height="42" width="42"><b class="fn"><a href="http://www.prashantv.com" rel="external nofollow ugc" class="url">prashant</a></b> <span class="says">says:</span>					</div>
+
+					<div class="comment-metadata">
+						<a href="https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/#comment-25">
+							<time datetime="2009-09-27T21:37:00+00:00">
+								September 27, 2009 at 9:37 pm							</time></a>
+											</div>
+
+									</footer><div class="comment-content">
+					<p>No worries! I was quite sure I uploaded the file, but just in case, can you try this link too:<br><a href="http://PLACEHOLDER.wpsho/files/multiclutch/AirKeysInputManager.bundle2.zip" rel="nofollow ugc">http://PLACEHOLDER.wpsho/files/multiclutch/AirKeysInputManager.bundle2.zip</a></p>
+<p>If it crashes, can you open Console, choose “system.log”, clear the display, run firefox again, make it crash, and copy whatever is shown on the Console log and email it to me (so I know what caused it to crash).</p>
+<p>Thanks</p>
+				</div>
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/" data-commentid="25" data-postid="20" data-belowelement="div-comment-25" data-respondelement="respond" aria-label="Reply to prashant">Reply</a></div>			</article></li>
+		<li id="comment-26" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-26" class="comment-body"><footer class="comment-meta"><div class="comment-author vcard">
+						<img alt="" src="https://secure.gravatar.com/avatar/a7063078a5003295be75b6bf94b7222b?s=42&d=mm&r=g" srcset="https://secure.gravatar.com/avatar/a7063078a5003295be75b6bf94b7222b?s=84&d=mm&r=g 2x" class="avatar avatar-42 photo" height="42" width="42"><b class="fn">Josh</b> <span class="says">says:</span>					</div>
+
+					<div class="comment-metadata">
+						<a href="https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/#comment-26">
+							<time datetime="2009-09-27T22:43:31+00:00">
+								September 27, 2009 at 10:43 pm							</time></a>
+											</div>
+
+									</footer><div class="comment-content">
+					<p>Hi Prashant.</p>
+<p>  Here’s what was written to the console when Firefox crashed (after a two-fingered scroll).</p>
+<p>   Sunday, 27 September 2009 13:33:48 Europe/London<br>
+Sep 27 13:34:05 Josh-Nunns-MacBook-Air SIMBL Agent[232]: received {n    NSApplicationBundleIdentifier = “org.mozilla.firefox”;n    NSApplicationName = Firefox;n    NSApplicationPath = “/Applications/Firefox.app”;n    NSApplicationProcessIdentifier = 643;n    NSApplicationProcessSerialNumberHigh = 0;n    NSApplicationProcessSerialNumberLow = 364633;n    NSWorkspaceApplicationKey = ;n}<br>
+Sep 27 13:34:06 Josh-Nunns-MacBook-Air firefox-bin[643]: Performance: Please update this scripting addition to supply a value for ThreadSafe for each event handler: “/Library/ScriptingAdditions/SIMBL.osax”<br>
+Sep 27 13:34:06 Josh-Nunns-MacBook-Air firefox-bin[643]: InjectEventHandler<br>
+Sep 27 13:34:06 Josh-Nunns-MacBook-Air firefox-bin[643]: MulticlutchPlugin installed<br>
+Sep 27 13:34:06 Josh-Nunns-MacBook-Air firefox-bin[643]: Loading Stoplight…<br>
+Sep 27 13:34:06 Josh-Nunns-MacBook-Air firefox-bin[643]: Swapping: __stoplight_zoom:<br>
+Sep 27 13:34:06 Josh-Nunns-MacBook-Air firefox-bin[643]: Swapping: __stoplight_close<br>
+Sep 27 13:34:06 Josh-Nunns-MacBook-Air firefox-bin[643]: Can’t open input server /Library/InputManagers/MultiClutchInputManager.bundle<br>
+Sep 27 13:34:06 Josh-Nunns-MacBook-Air [0x0-0x59059].org.mozilla.firefox[643]: objc[643]: Class GestureShortcutsController is implemented in both /Users/josh/Library/Application Support/SIMBL/Plugins/AirKeysInputManager.bundle/Contents/MacOS/AirKeysInputManager and /Library/InputManagers/MultiClutchInputManager/MultiClutchInputManager.bundle/Contents/MacOS/MultiClutchInputManager. One of the two will be used. Which one is undefined.<br>
+Sep 27 13:34:06 Josh-Nunns-MacBook-Air [0x0-0x59059].org.mozilla.firefox[643]: objc[643]: Class ExtendedGesturePoint is implemented in both /Users/josh/Library/Application Support/SIMBL/Plugins/AirKeysInputManager.bundle/Contents/MacOS/AirKeysInputManager and /Library/InputManagers/MultiClutchInputManager/MultiClutchInputManager.bundle/Contents/MacOS/MultiClutchInputManager. One of the two will be used. Which one is undefined.<br>
+Sep 27 13:34:15 Josh-Nunns-MacBook-Air crashreporter[647]: Can’t open input server /Library/InputManagers/MultiClutchInputManager.bundle<br>
+Sep 27 13:34:15 Josh-Nunns-MacBook-Air [0x0-0x59059].org.mozilla.firefox[643]: 2009-09-27 13:34:15.517 crashreporter[647:903] Can’t open input server /Library/InputManagers/MultiClutchInputManager.bundle<br>
+Sep 27 13:34:15 Josh-Nunns-MacBook-Air SIMBL Agent[232]: received {n    NSApplicationBundleIdentifier = “org.mozilla.crashreporter”;n    NSApplicationName = “Crash Reporter”;n    NSApplicationPath = “/Applications/Firefox.app/Contents/MacOS/crashreporter.app”;n    NSApplicationProcessIdentifier = 647;n    NSApplicationProcessSerialNumberHigh = 0;n    NSApplicationProcessSerialNumberLow = 368730;n    NSWorkspaceApplicationKey = ;n}<br>
+Sep 27 13:34:15 Josh-Nunns-MacBook-Air SIMBL Agent[232]: warning: failed to get scripting definition from /Applications/Firefox.app/Contents/MacOS/crashreporter.app; it may not be scriptable.<br>
+Sep 27 13:34:15 Josh-Nunns-MacBook-Air crashreporter[647]: Performance: Please update this scripting addition to supply a value for ThreadSafe for each event handler: “/Library/ScriptingAdditions/SIMBL.osax”<br>
+Sep 27 13:34:15 Josh-Nunns-MacBook-Air crashreporter[647]: InjectEventHandler<br>
+Sep 27 13:34:15 Josh-Nunns-MacBook-Air [0x0-0x59059].org.mozilla.firefox[643]: 2009-09-27 13:34:15.564 crashreporter[647:903] InjectEventHandler<br>
+Sep 27 13:34:15 Josh-Nunns-MacBook-Air [0x0-0x59059].org.mozilla.firefox[643]: objc[647]: Class GestureShortcutsController is implemented in both /Library/InputManagers/MultiClutchInputManager/MultiClutchInputManager.bundle/Contents/MacOS/MultiClutchInputManager and /Users/josh/Library/Application Support/SIMBL/Plugins/AirKeysInputManager.bundle/Contents/MacOS/AirKeysInputManager. One of the two will be used. Which one is undefined.<br>
+Sep 27 13:34:15 Josh-Nunns-MacBook-Air [0x0-0x59059].org.mozilla.firefox[643]: objc[647]: Class ExtendedGesturePoint is implemented in both /Library/InputManagers/MultiClutchInputManager/MultiClutchInputManager.bundle/Contents/MacOS/MultiClutchInputManager and /Users/josh/Library/Application Support/SIMBL/Plugins/AirKeysInputManager.bundle/Contents/MacOS/AirKeysInputManager. One of the two will be used. Which one is undefined.<br>
+Sep 27 13:34:15 Josh-Nunns-MacBook-Air crashreporter[647]: MulticlutchPlugin installed<br>
+Sep 27 13:34:15 Josh-Nunns-MacBook-Air [0x0-0x59059].org.mozilla.firefox[643]: 2009-09-27 13:34:15.566 crashreporter[647:903] MulticlutchPlugin installed<br>
+Sep 27 13:34:15 Josh-Nunns-MacBook-Air crashreporter[647]: Loading Stoplight…<br>
+Sep 27 13:34:15 Josh-Nunns-MacBook-Air crashreporter[647]: Swapping: __stoplight_zoom:<br>
+Sep 27 13:34:15 Josh-Nunns-MacBook-Air crashreporter[647]: Swapping: __stoplight_close<br>
+Sep 27 13:34:15 Josh-Nunns-MacBook-Air [0x0-0x59059].org.mozilla.firefox[643]: 2009-09-27 13:34:15.571 crashreporter[647:903] Loading Stoplight…<br>
+Sep 27 13:34:15 Josh-Nunns-MacBook-Air [0x0-0x59059].org.mozilla.firefox[643]: 2009-09-27 13:34:15.572 crashreporter[647:903] Swapping: __stoplight_zoom:<br>
+Sep 27 13:34:15 Josh-Nunns-MacBook-Air [0x0-0x59059].org.mozilla.firefox[643]: 2009-09-27 13:34:15.572 crashreporter[647:903] Swapping: __stoplight_close<br>
+Sep 27 13:34:15 Josh-Nunns-MacBook-Air com.apple.launchd.peruser.501[188] ([0x0-0x59059].org.mozilla.firefox[643]): Job appears to have crashed: Bus error<br>
+Sep 27 13:34:15 Josh-Nunns-MacBook-Air ReportCrash[648]: Saved crash report for firefox-bin[643] version 3.5.3 (3.5.3) to /Users/josh/Library/Logs/DiagnosticReports/firefox-bin_2009-09-27-133415_Josh-Nunns-MacBook-Air.crash<br>
+Sep 27 13:34:15 Josh-Nunns-MacBook-Air UserNotificationCenter[649]: Can’t open input server /Library/InputManagers/MultiClutchInputManager.bundle<br>
+Sep 27 13:34:15 Josh-Nunns-MacBook-Air pbs[650]: Malformed Services entries in Info.plist for Service at URL /Applications/TeX/LaTeXiT.appn	The value for key NSTimeOut was supposed to be of type NSString, but instead it was of type NSNumbern	The value for key NSTimeOut was supposed to be of type NSString, but instead it was of type NSNumbern	The value for key NSTimeOut was supposed to be of type NSString, but instead it was of type NSNumbern	The value for key NSTimeOut was supposed to be of type NSString, but instead it was of type NSNumbern	The value for key NSTimeOut was supposed to be of type NSString, but instead it was of type NSNumbern	The value for key NSTimeOut was supposed to be of type NSString, but instead it was of type NSNumber</p>
+				</div>
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/" data-commentid="26" data-postid="20" data-belowelement="div-comment-26" data-respondelement="respond" aria-label="Reply to Josh">Reply</a></div>			</article></li>
+		<li id="comment-27" class="comment byuser comment-author-prashant bypostauthor even thread-even depth-1">
+			<article id="div-comment-27" class="comment-body"><footer class="comment-meta"><div class="comment-author vcard">
+						<img alt="" src="https://secure.gravatar.com/avatar/18436307d175c41e323620aa791240e6?s=42&d=mm&r=g" srcset="https://secure.gravatar.com/avatar/18436307d175c41e323620aa791240e6?s=84&d=mm&r=g 2x" class="avatar avatar-42 photo" height="42" width="42"><b class="fn"><a href="http://www.prashantv.com" rel="external nofollow ugc" class="url">prashant</a></b> <span class="says">says:</span>					</div>
+
+					<div class="comment-metadata">
+						<a href="https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/#comment-27">
+							<time datetime="2009-09-27T22:48:30+00:00">
+								September 27, 2009 at 10:48 pm							</time></a>
+											</div>
+
+									</footer><div class="comment-content">
+					<p>Hmm, can you try removing the old Multiclutch bundle, and see if that helps.</p>
+				</div>
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/" data-commentid="27" data-postid="20" data-belowelement="div-comment-27" data-respondelement="respond" aria-label="Reply to prashant">Reply</a></div>			</article></li>
+		<li id="comment-28" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-28" class="comment-body"><footer class="comment-meta"><div class="comment-author vcard">
+						<img alt="" src="https://secure.gravatar.com/avatar/a7063078a5003295be75b6bf94b7222b?s=42&d=mm&r=g" srcset="https://secure.gravatar.com/avatar/a7063078a5003295be75b6bf94b7222b?s=84&d=mm&r=g 2x" class="avatar avatar-42 photo" height="42" width="42"><b class="fn">Josh</b> <span class="says">says:</span>					</div>
+
+					<div class="comment-metadata">
+						<a href="https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/#comment-28">
+							<time datetime="2009-09-27T23:25:16+00:00">
+								September 27, 2009 at 11:25 pm							</time></a>
+											</div>
+
+									</footer><div class="comment-content">
+					<p>That fixed it! Thanks so much. And thanks for your patience… Ah what a weird geeky buzz it is when something works…. Thanks again Prashant!</p>
+				</div>
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/" data-commentid="28" data-postid="20" data-belowelement="div-comment-28" data-respondelement="respond" aria-label="Reply to Josh">Reply</a></div>			</article></li>
+		<li id="comment-29" class="comment byuser comment-author-prashant bypostauthor even thread-even depth-1">
+			<article id="div-comment-29" class="comment-body"><footer class="comment-meta"><div class="comment-author vcard">
+						<img alt="" src="https://secure.gravatar.com/avatar/18436307d175c41e323620aa791240e6?s=42&d=mm&r=g" srcset="https://secure.gravatar.com/avatar/18436307d175c41e323620aa791240e6?s=84&d=mm&r=g 2x" class="avatar avatar-42 photo" height="42" width="42"><b class="fn"><a href="http://www.prashantv.com" rel="external nofollow ugc" class="url">prashant</a></b> <span class="says">says:</span>					</div>
+
+					<div class="comment-metadata">
+						<a href="https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/#comment-29">
+							<time datetime="2009-09-27T23:28:21+00:00">
+								September 27, 2009 at 11:28 pm							</time></a>
+											</div>
+
+									</footer><div class="comment-content">
+					<p>Glad it all works now!</p>
+				</div>
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/" data-commentid="29" data-postid="20" data-belowelement="div-comment-29" data-respondelement="respond" aria-label="Reply to prashant">Reply</a></div>			</article></li>
+		<li id="comment-30" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-30" class="comment-body"><footer class="comment-meta"><div class="comment-author vcard">
+						<img alt="" src="https://secure.gravatar.com/avatar/4bbc8601f93149d8b27a4c732b4d62f8?s=42&d=mm&r=g" srcset="https://secure.gravatar.com/avatar/4bbc8601f93149d8b27a4c732b4d62f8?s=84&d=mm&r=g 2x" class="avatar avatar-42 photo" height="42" width="42"><b class="fn"><a href="http://pumarino.org" rel="external nofollow ugc" class="url">Juan Ignacio Pumarino</a></b> <span class="says">says:</span>					</div>
+
+					<div class="comment-metadata">
+						<a href="https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/#comment-30">
+							<time datetime="2009-10-15T22:42:19+00:00">
+								October 15, 2009 at 10:42 pm							</time></a>
+											</div>
+
+									</footer><div class="comment-content">
+					<p>I missed MultiClutch for over a month, thanks!</p>
+<p>I only have one absolutely non-critical problem: when I open a link in a background tab, they look like this:</p>
+<p><a href="http://dl.getdropbox.com/u/976344/screenshots/20091015093901.4665.png" rel="nofollow ugc">http://dl.getdropbox.com/u/976344/screenshots/20091015093901.4665.png</a></p>
+				</div>
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://blog-old.prashantv.com/2009/09/multiclutch-x64-simbl-plugin/" data-commentid="30" data-postid="20" data-belowelement="div-comment-30" data-respondelement="respond" aria-label="Reply to Juan Ignacio Pumarino">Reply</a></div>			</article></li>
+		</ol><div id="respond" class="comment-respond">
+		<h2 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/2009/09/multiclutch-x64-simbl-plugin/#respond" style="display:none;">Cancel reply</a></small></h2><form action="https://blog-old.prashantv.com/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate><p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required"></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200"></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"><label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"><input type="hidden" name="comment_post_ID" value="20" id="comment_post_ID"><input type="hidden" name="comment_parent" id="comment_parent" value="0"></p></form>	</div>
+	
+</div>
+
+	<nav class="navigation post-navigation" role="navigation" aria-label="Posts"><h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="https://blog-old.prashantv.com/2009/09/itunes-windows-pms/" rel="prev"><span class="meta-nav" aria-hidden="true">Previous</span> <span class="screen-reader-text">Previous post:</span> <span class="post-title">iTunes Windows Support for PS3 Media Server</span></a></div><div class="nav-next"><a href="https://blog-old.prashantv.com/2009/09/minor-multitclutch-update/" rel="next"><span class="meta-nav" aria-hidden="true">Next</span> <span class="screen-reader-text">Next post:</span> <span class="post-title">Minor Multitclutch Update</span></a></div></div>
+	</nav></main></div>
+
+
+	<aside id="secondary" class="sidebar widget-area" role="complementary"><section id="search-2" class="widget widget_search"><form role="search" method="get" class="search-form" action="https://blog-old.prashantv.com/">
+	<label>
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" class="search-field" placeholder="Search …" value="" name="s"></label>
+	<button type="submit" class="search-submit"><span class="screen-reader-text">Search</span></button>
+</form>
+</section><section id="recent-posts-2" class="widget widget_recent_entries"><h2 class="widget-title">Recent Posts</h2>		<ul><li>
+					<a href="https://blog-old.prashantv.com/2010/11/itunes-to-foobar2000/">iTunes to foobar2000</a>
+									</li>
+											<li>
+					<a href="https://blog-old.prashantv.com/2010/10/use-word-by-word-diff-when-using-version-control-for-latex/">Use word-by-word diff when using version control for LaTeX</a>
+									</li>
+											<li>
+					<a href="https://blog-old.prashantv.com/2010/08/python-vs-c/">Python vs C++</a>
+									</li>
+											<li>
+					<a href="https://blog-old.prashantv.com/2010/07/getting-around-flash-streaming-sites-using-a-proxy-server/">Getting around flash streaming sites using a proxy server</a>
+									</li>
+											<li>
+					<a href="https://blog-old.prashantv.com/2009/09/multiclutch-fixes-instructions/">Multiclutch Fixes + Better Instructions</a>
+									</li>
+					</ul></section><section id="recent-comments-2" class="widget widget_recent_comments"><h2 class="widget-title">Recent Comments</h2><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link">Iakov</span> on <a href="https://blog-old.prashantv.com/2009/09/multiclutch-fixes-instructions/#comment-94">Multiclutch Fixes + Better Instructions</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://stimuli.ca" rel="external nofollow ugc" class="url">Rupert</a></span> on <a href="https://blog-old.prashantv.com/2010/11/itunes-to-foobar2000/#comment-96">iTunes to foobar2000</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://michaelparting.carbonmade.com/" rel="external nofollow ugc" class="url">Michael</a></span> on <a href="https://blog-old.prashantv.com/2009/09/multiclutch-fixes-instructions/#comment-93">Multiclutch Fixes + Better Instructions</a></li><li class="recentcomments"><span class="comment-author-link">Grant</span> on <a href="https://blog-old.prashantv.com/2009/09/multiclutch-fixes-instructions/#comment-92">Multiclutch Fixes + Better Instructions</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://www.prashantv.com" rel="external nofollow ugc" class="url">prashant</a></span> on <a href="https://blog-old.prashantv.com/2009/09/multiclutch-fixes-instructions/#comment-91">Multiclutch Fixes + Better Instructions</a></li></ul></section><section id="archives-2" class="widget widget_archive"><h2 class="widget-title">Archives</h2>		<ul><li><a href="https://blog-old.prashantv.com/2010/11/">November 2010</a></li>
+	<li><a href="https://blog-old.prashantv.com/2010/10/">October 2010</a></li>
+	<li><a href="https://blog-old.prashantv.com/2010/08/">August 2010</a></li>
+	<li><a href="https://blog-old.prashantv.com/2010/07/">July 2010</a></li>
+	<li><a href="https://blog-old.prashantv.com/2009/09/">September 2009</a></li>
+	<li><a href="https://blog-old.prashantv.com/2008/11/">November 2008</a></li>
+		</ul></section><section id="categories-2" class="widget widget_categories"><h2 class="widget-title">Categories</h2>		<ul><li class="cat-item cat-item-2"><a href="https://blog-old.prashantv.com/category/flash/">flash</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="https://blog-old.prashantv.com/category/imap/">imap</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="https://blog-old.prashantv.com/category/mail/">mail</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="https://blog-old.prashantv.com/category/multiclutch/">multiclutch</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="https://blog-old.prashantv.com/category/osx/">osx</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="https://blog-old.prashantv.com/category/outlook/">outlook</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="https://blog-old.prashantv.com/category/perl/">perl</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="https://blog-old.prashantv.com/category/ps3/">ps3</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="https://blog-old.prashantv.com/category/ubuntu/">ubuntu</a>
+</li>
+	<li class="cat-item cat-item-11"><a href="https://blog-old.prashantv.com/category/uncategorized/">Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-12"><a href="https://blog-old.prashantv.com/category/vaio/">vaio</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="https://blog-old.prashantv.com/category/x64/">x64</a>
+</li>
+		</ul></section><section id="meta-2" class="widget widget_meta"><h2 class="widget-title">Meta</h2>			<ul><li><a href="https://blog-old.prashantv.com/wp-login.php">Log in</a></li>
+			<li><a href="https://blog-old.prashantv.com/feed/">Entries feed</a></li>
+			<li><a href="https://blog-old.prashantv.com/comments/feed/">Comments feed</a></li>
+			<li><a href="https://wordpress.org/">WordPress.org</a></li>			</ul></section></aside></div>
+
+		<footer id="colophon" class="site-footer" role="contentinfo"><div class="site-info">
+								<span class="site-title"><a href="https://blog-old.prashantv.com/" rel="home">My Tech Spot</a></span>
+								<a href="https://wordpress.org/" class="imprint">
+					Proudly powered by WordPress				</a>
+			</div>
+		</footer></div>
+</div>
+
+<script src="https://blog-old.prashantv.com/wp-content/themes/twentysixteen/js/skip-link-focus-fix.js"></script><script>
+var screenReaderText = {"expand":"expand child menu","collapse":"collapse child menu"};
+</script><script src="https://blog-old.prashantv.com/wp-content/themes/twentysixteen/js/functions.js"></script></body></html>
