@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>fs &#8211; My Tech Spot</title>
+	<atom:link href="https://blog-old.prashantv.com/tag/fs/feed/" rel="self" type="application/rss+xml" />
+	<link>https://blog-old.prashantv.com/</link>
+	<description>Just another WordPress site</description>
+	<lastBuildDate>Fri, 28 Nov 2008 10:12:29 +0000</lastBuildDate>
+	<language>en-AU</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.4.2</generator>
+	<item>
+		<title>Getting FN keys of Vaio VGN-FS38GP working in Ubuntu 8.10</title>
+		<link>https://blog-old.prashantv.com/2008/11/vaio-fs-fn-keys-ubuntu-810/</link>
+					<comments>https://blog-old.prashantv.com/2008/11/vaio-fs-fn-keys-ubuntu-810/#comments</comments>
+		
+		<dc:creator><![CDATA[prashant]]></dc:creator>
+		<pubDate>Fri, 28 Nov 2008 10:12:29 +0000</pubDate>
+				<category><![CDATA[ubuntu]]></category>
+		<category><![CDATA[vaio]]></category>
+		<category><![CDATA[fn]]></category>
+		<category><![CDATA[fs]]></category>
+		<category><![CDATA[fsfn]]></category>
+		<guid isPermaLink="false">http://blog-old.prashantv.com/?p=5</guid>
+
+					<description><![CDATA[Ubuntu 8.10 does not support the Vaio FS series by default, and needs a little bit of hacking to get working. The old fsfn program does not work anymore unfortunately. Some poking around found me this error in my dmesg output everytime I pressed a FN key:  atkbd.c: Use &#8216;setkeycodes e075 &#60;keycode&#62;&#8217; to make it &#8230; <a href="https://blog-old.prashantv.com/2008/11/vaio-fs-fn-keys-ubuntu-810/" class="more-link">Continue reading<span class="screen-reader-text"> "Getting FN keys of Vaio VGN-FS38GP working in Ubuntu 8.10"</span></a>]]></description>
+										<content:encoded><![CDATA[<p>Ubuntu 8.10 does not support the Vaio FS series by default, and needs a little bit of hacking to get working. The old fsfn program does not work anymore unfortunately. Some poking around found me this error in my dmesg output everytime I pressed a FN key: </p>
+<blockquote><p>atkbd.c: Use &#8216;setkeycodes e075 &lt;keycode&gt;&#8217; to make it known.<br />
+atkbd.c: Unknown key released (translated set 2, code 0xf5 on isa0060/serio0).</p></blockquote>
+<p>This was repeated multiple times. I also found that a file located at /sys/devices/platform/sony-laptop/fnkey had the right value after a FN key press.</p>
+<p>I realised I could combine these to come up with a hack solution that would work. I decided to write a perl script that would be called everytime a fn key was pressed, that would figure out which key was pressed (using the fnkey file) and then do the right thing.</p>
+<p>To get the key recognised to start our perl script, we use xbindkeys and we use the setkeycodes command. I made a <a href="http://blog-old.prashantv.com/files/vaio_fs/vaio_keys.sh">script </a>that maps all FN keys to keycode 235. I then use this <a href="http://blog-old.prashantv.com/files/vaio_fs/xbindkeysrc">.xbindkeysrc</a> (it must be named .xbindkeysrc in your home directory and you need to install xbindkeys) to start my perl script.</p>
+<p>The perl script itself just invokes some scripts that come with ubuntu. At the moment it only supports the volume controls and brightness (as these are what I wanted). The script is located <a href="http://blog-old.prashantv.com/files/vaio_fs/vaio_keys.zip">here</a>.</p>
+<p>Turns out the ubuntu scripts need root access to run, so I ran the following commands to ensure all executions of the program run as root (I wasn&#8217;t too worried about security in this case..)</p>
+<blockquote><p>sudo chmod a+s /etc/acpi/sonybright.sh<br />
+sudo chmod a+s /usr/bin/acpi_fakekey </p></blockquote>
+<p>My files use hardcoded paths of /home/prashant so you will have to change those to make it work.</p>
+<p>All the files needed can be found here:<br />
+<a href="http://blog-old.prashantv.com/files/vaio_fs/">http://blog-old.prashantv.com/files/vaio_fs/</a> </p>
+<p>I took a look at the driver (/drivers/misc/sony-laptop.c) and realised that fn keys do not generate any event in the sony-laptop code currently, and seem to only generate normal keyboard events. Unfortunately I don&#8217;t have any experience with the linux kernel to figure out how to fix it at the kernel level.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://blog-old.prashantv.com/2008/11/vaio-fs-fn-keys-ubuntu-810/feed/</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>
